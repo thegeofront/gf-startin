@@ -1,2 +1,2 @@
 # startin
-A geofront wrapper for startin
+startin as a geofront plugin
