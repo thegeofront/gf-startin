@@ -24,6 +24,11 @@ impl Triangulation {
         pts.push(vec![60.0, 60.0, 33.0]);
 
         let mut tri = Triangulation::new();
+    
+        if b {
+            
+        }
+        
         tri.dt.insert(&pts);
         
         tri
