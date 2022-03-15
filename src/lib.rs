@@ -16,14 +16,4 @@ extern "C" {
 #[wasm_bindgen(start)]
 pub fn start() {
     utils::set_panic_hook();
-    log("Hello, startin!");
 }
-
-// pub fn triangulation(pts: Vec<Vec<f64>>) -> startin::Triangulation {
-//     let mut dt = startin::Triangulation::new();
-//     dt.insert(&pts);
-   
-//     dt
-// }
-
-

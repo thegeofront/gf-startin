@@ -1,7 +1,10 @@
+/*
+ * NOTE: taken for a large part from: https://github.com/hugoledoux/startin_wasm/blob/master/src/lib.rs
+ * 
+ */ 
+
 use wasm_bindgen::prelude::*;
 use startin;
-
-// NOTE: inspired by: https://github.com/hugoledoux/startin_wasm/blob/master/src/lib.rs
 
 #[wasm_bindgen]
 pub struct Triangulation {
