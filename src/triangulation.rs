@@ -11,9 +11,24 @@ pub struct Triangulation {
 #[wasm_bindgen]
 impl Triangulation {
 
-    pub fn triangulation(pts: Vec<f64>) -> Triangulation {
+    pub fn new_default(b: bool) -> Triangulation {
+
+        let mut pts: Vec<Vec<f64>> = Vec::new();
+        pts.push(vec![20.0, 30.0, 2.0]);
+        pts.push(vec![120.0, 33.0, 12.5]);
+        pts.push(vec![124.0, 222.0, 7.65]);
+        pts.push(vec![20.0, 133.0, 21.0]);
+        pts.push(vec![60.0, 60.0, 33.0]);
+
         let mut tri = Triangulation::new();
-        tri.insert_multiple(pts);
+        tri.dt.insert(&pts);
+        
+        tri
+    }
+
+    pub fn new_from_vec(pts: Vec<f64>) -> Triangulation {
+        let mut tri = Triangulation::new();
+        tri.insert(pts);
         tri
     } 
 
@@ -22,8 +37,7 @@ impl Triangulation {
         Triangulation { dt }
     }
 
-    pub fn insert_multiple(&mut self, pts: Vec<f64>) {
-        
+    pub fn insert(&mut self, pts: Vec<f64>) {
         const STRIDE: usize = 3;
         for i in (0..pts.len()).step_by(STRIDE) {
             self.insert_one_pt(pts[i], pts[i+1], pts[i+2]);
