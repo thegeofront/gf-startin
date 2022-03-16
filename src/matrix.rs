@@ -1,9 +1,16 @@
-use wasm_bindgen::prelude::*;
 
-#[wasm_bindgen]
+use wasm_bindgen::prelude::*;
+use wasm_bindgen::convert::RefFromWasmAbi;
+
+#[wasm_bindgen(inspectable)]
+pub struct MultiPoint {
+    pub vertices: Box<Vec<f64>>
+}
+
+#[wasm_bindgen(inspectable)]
 pub struct Matrix {
-    width: usize,
-    height: usize,
+    pub width: usize,
+    pub height: usize,
     d: Vec<f64>
 }
 
@@ -33,8 +40,20 @@ impl Matrix {
 impl Matrix {
 
     pub fn new(width: usize, height: usize) -> Matrix {
+
         let d = vec![0.0; width * height];
         Matrix {width, height, d}
+    }
+
+    pub fn get_some(&mut self, b: bool) {
+        // let arr = JsValue::from(self.to_vec());
+        // vec![JsValue::from_str("GFPoint"), arr].into_boxed_slice()
+    }
+
+    pub fn to_multipoint_3(&self) -> MultiPoint {
+        assert!(self.width == 3);
+
+        MultiPoint::new(self.d.clone())
     }
 
     pub fn new_from_vec(vec: Vec<f64>, width: usize) -> Matrix {
