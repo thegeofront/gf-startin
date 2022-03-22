@@ -1,3 +1,5 @@
+## SEE: https://github.com/hugoledoux/startin
+
 
 ## Usage
 - 🛠️ Build with `wasm-pack build`
