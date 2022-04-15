@@ -3,7 +3,6 @@
 use wasm_bindgen::prelude::*;
 
 mod utils;
-mod matrix;
 mod triangulation;
 
 #[wasm_bindgen]
