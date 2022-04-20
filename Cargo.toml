@@ -1,6 +1,6 @@
 [package]
 name = "gfp-startin"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Jos <me@josfeenstra.nl>"]
 edition = "2018"
 
