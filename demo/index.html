@@ -42,11 +42,15 @@
         }
 
         function plot_lines(ctx, lines) {
-            ctx.beginPath();
+            const WIDTH = 6;
+            let count = lines.length / WIDTH;
+            
             let get = (i, j) => {
-                return lines[(i * 6) + j];
+                return lines[(i * WIDTH) + j];
             }
-            for (let i = 0 ; i < lines.length / 6; i++) {
+
+            ctx.beginPath();
+            for (let i = 0 ; i < count; i++) {
                 ctx.moveTo(get(i, 0), get(i, 1));
                 ctx.lineTo(get(i, 3), get(i, 4));
             }
@@ -66,7 +70,6 @@
                 data.push(Math.random() * 1);
             }
             let dt = Triangulation.new_from_vec(data);
-            
 
             // draw verts
             let vertData = dt.all_vertices();
@@ -79,13 +82,13 @@
                 plot_circle(ctx, v[0], v[1], 2);
             }
 
+            // draw iso's 
             let count = 10;
             for (let i = 0 ; i < count; i++) {
                 let normLevel = i / count + (0.5 / count);
                 let lvl = dt.isolevel(normLevel);
                 console.log(lvl);
                 plot_lines(ctx, lvl);
-                // plot_lines(ctx, [0,0,0,500,300,0]);
             }
         } 
         run()
