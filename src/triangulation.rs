@@ -14,26 +14,6 @@ pub struct Triangulation {
 #[wasm_bindgen]
 impl Triangulation {
 
-    pub fn new_default(b: bool) -> Triangulation {
-
-        let mut pts: Vec<Vec<f64>> = Vec::new();
-        pts.push(vec![20.0, 30.0, 2.0]);
-        pts.push(vec![120.0, 33.0, 12.5]);
-        pts.push(vec![124.0, 222.0, 7.65]);
-        pts.push(vec![20.0, 133.0, 21.0]);
-        pts.push(vec![60.0, 60.0, 33.0]);
-
-        let mut tri = Triangulation::new();
-    
-        if b {
-            
-        }
-        
-        tri.dt.insert(&pts);
-        
-        tri
-    }
-
     pub fn new_from_vec(pts: Vec<f64>) -> Triangulation {
         let mut tri = Triangulation::new();
         tri.insert(pts);
@@ -107,5 +87,10 @@ impl Triangulation {
         } else {
             return true;
         }
+    }
+
+    pub fn get_isocurve() -> bool {
+        
+        return false;
     }
 }
